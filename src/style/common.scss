@@ -1,0 +1,1186 @@
+// 清除浮动
+@mixin clearfix() {
+    &:after{
+        content: '';
+        height: 0;
+        display: block;
+        clear: both;
+        visibility: hidden;
+    }
+}
+// 滚动条的样式
+::-webkit-scrollbar {
+    width: 4px;
+    height: 2px;
+  }
+  //滚动条的滑块
+  ::-webkit-scrollbar-thumb {
+    background-color: #ADE2FF;
+    border-radius: 3px;
+  }
+  // input框 统一高度 .el-input.is-disabled .el-input__inner
+  .el-input {
+    .el-input__inner {
+      height: 28px;
+      line-height: 28px;
+      font-size: 12px;
+      color: #fff;
+      // background:transparent;
+      background:rgba(224,244,255,0.24);
+      padding: 0 0 0 8px;
+      border: none;
+    }
+    &.is-disabled { // disabled 样式
+      .el-input__inner {
+        background-color: rgba(224,244,255,0.24);
+      }
+    }
+    &.el-input--suffix {
+      .el-input__inner {
+        padding-right: 20px;
+      }
+    }
+    .el-input__icon {
+      width: 20px;
+      line-height: 28px;
+    }
+    .el-input__suffix {
+      right: 2px;
+    }
+    .el-select__caret,.el-icon-arrow-down {
+      color: #FF6E00 !important;
+    }
+  }
+  .el-textarea__inner{
+    background:rgba(224,244,255,0.24);
+    border: none;
+    color: #fff;
+  }
+  // 搜索-样式-tree
+  .treeSearchWrap {
+    width: 210px;
+    height: 28px;
+    background:rgba(224,244,255,0.24);
+    font-size: 12px;
+    margin: 26px 22px 38px;
+    position: relative;
+    >i{
+      position: absolute;
+      top: 8px;
+      right: 30px;
+    }
+    .selectType {
+      width: 65px;
+      height: 28px;
+      line-height: 28px;
+      vertical-align: top;
+      .el-input {
+        .el-input__inner {
+          text-align: center;
+        }
+      }
+      
+    }
+    .el-button{
+      padding: 6.5px 12px;
+      background: rgba(224, 244, 255, 0.24);
+      border: none;
+      color: #fff;
+      border-radius: 0px;
+    }
+    .treeSearchInput {
+      display: inline-block;
+      width: 172px;
+      height: 28px;
+      vertical-align: top;
+      color: #fff;
+      cursor: pointer;
+      .el-input__inner {
+        width: 100%;
+        z-index: 10001;
+        border-radius: 0px;
+      }
+    }
+    .searchLine{
+      width: 0px;
+    }
+  }
+  .searchLine {
+    display: inline-block;
+    width: 2px;
+    height: 22px;
+    background:rgba(224,244,255,0.6);
+    margin-top: 3px;
+    vertical-align: top;
+  }
+  // input循环添加close
+  .inputWrap {
+    position: relative;
+    .close {
+      position: absolute;
+      right: 26px;
+      top: 16px;
+    }
+  }
+  // tree - 样式
+  .treeWrap {
+    width: 100%;
+    height: 850px;
+    max-height: 850px;
+    overflow: auto;
+    padding: 0 22px;
+    box-sizing: border-box;
+    .el-tree {
+      color: #fff;
+      font-size: 12px;
+      background-color: transparent;
+      >.el-tree-node{
+        >.el-tree-node__content{
+          padding-left: 8px!important;
+        }
+      }
+      .el-tree-node__content {
+        &:hover {
+          background-color:rgba(255,255,255,.3);
+        }
+      }
+      .el-tree-node {
+        &:focus {
+          &>.el-tree-node__content {
+            background-color:rgba(255,255,255,.3);
+          }
+        }
+      }
+      .el-tree-node__label {
+        font-size: 12px;
+      }
+      .is-current {
+        &>.el-tree-node__content {
+          background-color:rgba(255,255,255,.3) !important;
+        }
+      }
+      .el-checkbox__input {
+        &.is-focus {
+          border-color: #fff;
+          .el-checkbox__inner {
+            border-color: #fff;
+          }
+        }
+      }
+      .el-checkbox__inner {
+        background-color: transparent;
+        &:hover {
+          border-color: #fff;
+        }
+        &:focus {
+          border-color: #fff;
+        }
+      }
+      .el-checkbox__input {
+        &.is-checked {
+          .el-checkbox__inner {
+            background-color: transparent;
+            color: #fff;
+            border-color: #fff;
+          }
+        }
+        &.is-indeterminate {
+          .el-checkbox__inner {
+            background-color: transparent;
+            color: #fff;
+            border-color: #fff;
+          }
+        }
+      }
+      .el-tree-node__expand-icon {
+        position: absolute;
+        right: 0;
+        color: #fff;
+        &.is-leaf {
+          display: none;
+          color: transparent;
+        }
+      }
+      .el-icon-caret-right {
+        &:before {
+          content: "\E604";
+        }
+      }   
+    }
+  }
+  // tree - 对应的图标
+  .el-tree {
+    .treeIcon {
+      width: 16px;
+      height: 16px;
+      vertical-align: top;
+    }
+    .ballIcon { // 球机icon
+      float: right;
+      width: 16px;
+      height: 16px;
+      background: url('../../assets/images/icon-eye.png') no-repeat;
+      z-index: 10;
+    }
+    .icon-floor { // 楼层
+      background: url('../../assets/images/icon-floor.png') no-repeat;
+    }
+    .icon-whole { // 全部
+      background: url('../../assets/images/icon-whole.png') no-repeat;
+    }
+    .icon-layer { // 楼栋
+      background: url('../../assets/images/icon-layer.png') no-repeat;
+    }
+    .icon-eye { // 监控系统
+      background: url('../../assets/images/icon-eye.png') no-repeat;
+    }
+    .icon-firecontrol { // 消防系统
+      background: url('../../assets/images/icon-Firecontrol.png') no-repeat;
+    }
+    .icon-security {
+      background: url('../../assets/images/icon-Security.png') no-repeat;
+    }
+    .icon-accesscontrol {
+      background: url('../../assets/images/icon-Accesscontrol.png') no-repeat;
+    }
+    .icon-equipment {
+      background: url('../../assets/images/icon-equipment.png') no-repeat;
+    }
+    .icon-electriccurrent { // 电流
+      background: url('../../assets/images/icon-Electriccurrent.png') no-repeat;
+    }
+    .icon-hydrant { // 消火栓
+      background: url('../../assets/images/icon-Hydrant.png') no-repeat;
+    }
+    .icon-manual { // 手动
+      background: url('../../assets/images/icon-Manual.png') no-repeat;
+    }
+    .icon-abnormal { // 异常
+      background: url('../../assets/images/icon-abnormal.png') no-repeat;
+    }
+    .icon-acousto-optic { // 声光
+      background: url('../../assets/images/icon-acousto-optic.png') no-repeat;
+    }
+    .icon-smokesensation { // 烟感
+      background: url('../../assets/images/icon-Smokesensation.png') no-repeat;
+    }
+    .icon-temperature { // 温度
+      background: url('../../assets/images/icon-temperature.png') no-repeat;
+    }
+    .icon-pressure { // 压力
+      background: url('../../assets/images/icon-pressure.png') no-repeat;
+    }
+    .icon-guanggan{ // 光感
+      background: url('../../assets/images/guanggan.png') no-repeat;
+    }
+    .icon-qiuji{ // 球机
+      background: url('../../assets/images/qiuji.png') no-repeat;
+    }
+    .icon-hongwai{ // 红外
+      background: url('../../assets/images/hongwai.png') no-repeat;
+    }
+    .icon-voice{ // 声音
+      background: url('../../assets/images/voice.png') no-repeat;
+    }
+    .icon-renti{ // 人体
+      background: url('../../assets/images/renti.png') no-repeat;
+    }
+    .icon-zhendong{ // 震动
+      background: url('../../assets/images/zhendong.png') no-repeat;
+    }
+    .icon-qiangji{ // 枪机
+      background: url('../../assets/images/qiangji.png') no-repeat;
+    }
+  }
+
+  // 表格的头部样式
+  .topMsg{
+    >span{
+      display: inline-block;
+      margin-top: 10px;
+    }
+    .el-radio-group{
+      margin-bottom: -30px;
+    }
+    .uploadBtn {
+      float: right;
+      margin-left: 10px;
+    }
+    .el-radio-button__orig-radio:checked+.el-radio-button__inner{
+      background: url('../../assets/images/qiehuan01.png') no-repeat;
+      width:72px;
+      height:26px;
+      border-radius:0px;
+      border:none;
+      line-height: 26px;
+      padding: 0px;
+      font-size: 12px;
+      color:rgba(255,255,255,1);
+      box-shadow: none;
+    }
+    .el-radio-button__inner{
+      background: url('../../assets/images/qiehuan02.png') no-repeat;
+      width:72px;
+      height:26px;
+      border-radius:0px;
+      border:none;
+      line-height: 26px;
+      padding: 0px;
+      font-size: 12px;
+      color:rgba(255,255,255,1);
+    }
+    .el-radio-button{
+      border: none;
+    }
+    .el-radio-button:first-child .el-radio-button__inner{
+      border-radius:0px;
+      border: none;
+    }
+    .el-radio-button:last-child .el-radio-button__inner{
+      border-radius:0px;
+      border: none;
+    }
+  }
+
+  // 公共按钮
+    .commonBtn{
+      background: url('../../assets/images/qiehuan02.png') no-repeat;
+      width:72px;
+      height:26px;
+      line-height: 26PX;
+      padding: 0px;
+      margin-bottom: 12px;
+      color:rgba(255,255,255,1);
+      border: none;
+      float:right;
+      &.el-button:focus,&.el-button:hover{
+        background: url('../../assets/images/qiehuan01.png') no-repeat;
+        width:72px;
+        height:26px;
+        line-height: 26PX;
+        padding: 0px;
+        color:rgba(255,255,255,1);
+        border: none;
+      }
+    }
+  
+    i{
+      cursor: pointer;
+    }
+  // 表格
+  .el-table{
+    color: #fff;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    th.is-leaf{
+      border:none;
+    }
+    tr{
+      background-color: rgba(135,174,203,0.24);
+    }
+    td{
+      padding: 4px 0;
+      border: none;
+    }
+    th {
+      padding: 4px 0;
+    }
+    .el-table__row{
+      // background-color: rgba(135,174,203,0.24);
+    }
+    .el-table__row--striped{
+      td{
+        background:rgba(0, 0, 0, 0);
+      }
+      background-color: rgba(0, 0, 0, 0);
+    }
+    .el-table__empty-text{
+      color: #fff;
+    }
+  }
+  .el-table::before{
+    height: 0px;
+  }
+  .el-table--enable-row-hover .el-table__body tr:hover>td{
+    background-color: rgba(135,174,203,0.24);
+  }
+  .el-table--striped .el-table__body tr.el-table__row--striped td{
+    background:rgba(116,154,182,0.12);
+  }
+  .el-table--striped .el-table__body tr.el-table__row--striped:hover td{
+    background:rgba(116,154,182,0.6);
+  }
+  // 分页
+  .block{
+    float: right;
+    margin-top: 20px;
+    .pageBtn{
+      display: inline-block;
+      width: 58px;
+      height: 28px;
+      background: url('../../assets/images/Shape2.png') no-repeat;
+      text-align: center;
+      line-height: 28px;
+      cursor: pointer;
+    }
+    .el-pagination {
+      display: inline-block;
+      vertical-align: top;
+      padding: 0px;
+    }
+    .btn-prev,.btn-next{
+      background: url('../../assets/images/Shape1-1.png') no-repeat;
+      background-color: rgba(0, 0, 0, 0)!important;
+      
+    }
+    .el-pager{
+      li{
+        background-color: rgba(0, 0, 0, 0)!important;
+      }
+      .number {
+        background: url('../../assets/images/Shape1-1.png') no-repeat;
+        color: #fff!important;
+      }
+    }
+    .el-pagination.is-background .el-pager li:not(.disabled).active{
+      background-color: rgba(0, 0, 0, 0);
+      background: url('../../assets/images/Shape1.png') no-repeat;
+    }
+  }
+
+  // 确定和取消按钮
+  .ensureBtn{
+    position: absolute;
+    bottom: 50px;
+    left: -10px;
+    .ensure,.cancel{
+      width: 120px;
+      height: 32px;
+      line-height: 32px;
+      padding: 0px;
+      color: #fff;
+      background: url('../../assets/images/quding.png') no-repeat;
+      &.el-button+.el-button{
+        margin-left: 0px;
+      }
+      &.el-button:hover,&.el-button:focus{
+        color: #fff;
+        background: url('../../assets/images/quxiao.png') no-repeat;
+      }
+    }
+  }
+
+  // 中间表格的样式
+  .centerList{
+    position: absolute;
+    top: 137px;
+    left: 360px;
+    box-sizing: border-box;
+    width: 1200px;
+    height: 600px;
+    background: url("../../assets/images/main.png") no-repeat;
+    padding: 30px 46px;
+  }
+
+  .el-form-item{
+    margin-bottom: 0px;
+    .el-form-item__label{
+      color: #fff;
+    }
+  }
+
+input::-webkit-input-placeholder { /* WebKit browsers */
+  color: #fff !important;
+}
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: #fff !important;
+}
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: #fff !important;
+}
+input:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color: #fff !important;
+}
+
+.clearInputBG{
+  .el-input .el-input__inner{
+    background:rgba(224,244,255,0.24);
+  }
+}
+.inputWithClose {
+  .el-input .el-input__inner{
+    padding-right: 20px;
+    box-sizing: border-box;
+  }
+}
+.addInput {
+  width: 120px;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  background:rgba(224,244,255,0.24);
+}
+  // 搜索信息
+.searchMsg {
+  margin-bottom: 24px;
+    .approver {
+      display: inline-block;
+      width: 95%;
+      margin-top: 7px;
+      margin-right: 10px;
+    }
+    .clearInput{
+      display: inline-block;
+      position: relative;
+      .el-icon-circle-close{
+        position: absolute;
+        right: 13px;
+        top: 16px;
+      }
+    }
+    .selectLength {
+      width: 132px;
+      .el-select {
+        width: 88px;
+      }
+    }
+    .selectBigLength {
+      width: 226px;
+      .el-select {
+        width: 140px;
+      }
+    }
+    .cascaderLength{
+      width: 228px;
+      
+      .el-form-item__content{
+        width: 155px;
+        .el-cascader__label{
+          color: #fff;
+          >span{
+            color: #fff;
+          }
+        }
+      }
+    }
+    .selectAltLength {
+      width: 150px;
+      .el-select {
+        width: 82px;
+      }
+    }
+    .waringTime {
+      .el-form-item__content {
+        width: 166px;
+        .el-date-editor.el-input {
+          width: 166px;
+        }
+      }
+    }
+    .el-icon-date{
+      display: none;
+    }
+    .el-form-item:last-of-type{
+      margin-right: 0px;
+      float: right;
+    }
+    .commonBtn {
+      margin-top: 8px;
+      margin-bottom: 0px;
+    }
+    .el-input.is-disabled .el-input__inner{
+      background-color: rgba(224, 244, 255, 0.24);
+    }
+}
+// table 上面的信息
+.tableMessage {
+  height: 40px;
+  line-height: 40px;
+  .el-button {
+    margin-top: 6px;
+    margin-bottom: 0;
+  }
+}
+// 菜单图标-左侧
+.leftIconWrap {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    left: 300px;
+    top: 888px;
+    transition: left 1s;
+    &.hideLeft {
+      left: 48px;
+      transition: left 1s;
+    }
+  .settingIcon {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    width: 48px;
+    height: 48px;
+    background: url('../../assets/images/settingIcon.png');
+    cursor: pointer;
+    z-index: 99;
+    &:hover {
+      background: url('../../assets/images/settingIconActive.png');
+    }
+  }
+  .toggleIconWrap {
+    position: relative;
+    left: 0px;
+    top: -310px;
+    width: 48px;
+    height: 48px;
+    overflow: hidden;
+    transition-delay: 0.7s;
+    &.iconShow {
+      width: 48px;
+      height: 260px;
+      transition: width 0s 0.7s;
+    }
+    &.sonIconShow {
+      width: 410px;
+      height: 260px;
+      transition-delay: 0s;
+    }
+    .deviceIconWrap {
+      position: absolute;
+      left: 0px;
+      top: 300px;
+      width: 400px;
+      height: 48px;
+      transition: top 0.2s;
+      &.iconShow {
+        top: 210px;
+        transition: top 0.2s;
+      }
+      .deviceIcon {
+        display: inline-block;
+        width: 48px;
+        height: 48px;
+        background: url('../../assets/images/deviceIcon.png');
+        cursor: pointer;
+        &:hover {
+          background: url('../../assets/images/deviceIconActive.png');
+        }
+      }
+      .deviceSonIcon {
+        position: relative;
+        display: inline-block;
+        width: 0px;
+        height: 0px;
+        transition-delay: 0.7s;
+        overflow: hidden;
+        &.sonIconShow {
+          width: 350px;
+          height: 48px;
+          transition-delay: 0s;
+        }
+      }
+    }
+    .doorIconWrap {
+      position: absolute;
+      left: 0px;
+      top: 260px;
+      transition: top 0.2s;
+      transition-delay: 0.1s;
+      &.iconShow {
+        top:160px;
+        transition: top 0.2s;
+        transition-delay: 0.1s;
+      }
+      .doorIcon {
+        display: inline-block;
+        width: 48px;
+        height: 48px;
+        background: url('../../assets/images/doorIcon.png');
+        cursor: pointer;
+        &:hover {
+          background: url('../../assets/images/doorIconActive.png');
+        }
+      }
+      .doorSonIcon {
+        position: relative;
+        display: inline-block;
+        width: 0px;
+        height: 0px;
+        transition-delay: 0.7s;
+        overflow: hidden;
+        &.sonIconShow {
+          width: 350px;
+          height: 48px;
+          transition-delay: 0s;
+        }
+      }
+    }
+    .safeIconWrap {
+      position: absolute;
+      left: 0px;
+      top: 300px;
+      transition: top 0.2s;
+      transition-delay: 0.2s;
+      &.iconShow {
+        top:110px;
+        transition: top 0.2s;
+        transition-delay: 0.2s;
+      }
+      .safeIcon {
+        display: inline-block;
+        width: 48px;
+        height: 48px;
+        background: url('../../assets/images/safeIcon.png');
+        cursor: pointer;
+        &:hover {
+          background: url('../../assets/images/safeIconActive.png');
+        }
+      }
+      .safeSonIcon {
+        position: relative;
+        display: inline-block;
+        width: 0px;
+        height: 0px;
+        overflow: hidden;
+        transition-delay: 0.7s;
+        &.sonIconShow {
+          width: 350px;
+          height: 48px;
+          transition-delay: 0s;
+        }
+        .guangganIcon {
+          position: absolute;
+          display: inline-block;
+          left: -50px;
+          top: 0;
+          width: 48px;
+          height: 48px;
+          background: url('../../assets/images/guangganIcon.png') no-repeat;
+          cursor: pointer;
+          transition: left 0.2s;
+          &:hover {
+            background: url('../../assets/images/guangganIconActive.png') no-repeat;
+          }
+          &.sonIconShow {
+            left: 0;
+            top: 0;
+            transition: left 0.2s;
+          }
+        }
+        .qiujiIcon {
+          position: absolute;
+          display: inline-block;
+          left: -50px;
+          top: 0;
+          width: 48px;
+          height: 48px;
+          background: url('../../assets/images/qiujiIcon.png') no-repeat;
+          cursor: pointer;
+          transition: left 0.2s;
+          transition-delay: 0.1s;
+          &:hover {
+            background: url('../../assets/images/qiujiIconActive.png') no-repeat;
+          }
+          &.sonIconShow {
+            left: 50px;
+            top: 0;
+            transition: left 0.2s;
+            transition-delay: 0.1s;
+          }
+        }
+        .hongwaiIcon {
+          position: absolute;
+          display: inline-block;
+          left: -50px;
+          top: 0;
+          width: 48px;
+          height: 48px;
+          background: url('../../assets/images/hongwaiIcon.png') no-repeat;
+          cursor: pointer;
+          transition: left 0.2s;
+          transition-delay: 0.2s;
+          &:hover {
+            background: url('../../assets/images/hongwaiIconActive.png') no-repeat;
+          }
+          &.sonIconShow {
+            left: 100px;
+            top: 0;
+            transition: left 0.2s;
+            transition-delay: 0.2s;
+          }
+        }
+        .voiceIcon {
+          position: absolute;
+          display: inline-block;
+          left: -50px;
+          top: 0;
+          width: 48px;
+          height: 48px;
+          background: url('../../assets/images/voiceIcon.png') no-repeat;
+          cursor: pointer;
+          transition: left 0.2s;
+          transition-delay: 0.3s;
+          &:hover {
+            background: url('../../assets/images/voiceIconActive.png') no-repeat;
+          }
+          &.sonIconShow {
+            left: 150px;
+            top: 0;
+            transition: left 0.2s;
+            transition-delay: 0.3s;
+          }
+        }
+        .bodyIcon {
+          position: absolute;
+          display: inline-block;
+          left: -50px;
+          top: 0;
+          width: 48px;
+          height: 48px;
+          background: url('../../assets/images/bodyIcon.png') no-repeat;
+          cursor: pointer;
+          transition: left 0.2s;
+          transition-delay: 0.4s;
+          &:hover {
+            background: url('../../assets/images/bodyIconActive.png') no-repeat;
+          }
+          &.sonIconShow {
+            left: 200px;
+            top: 0;
+            transition: left 0.2s;
+            transition-delay: 0.4s;
+          }
+        }
+        .zhendongIcon {
+          position: absolute;
+          display: inline-block;
+          left: -50px;
+          top: 0;
+          width: 48px;
+          height: 48px;
+          background: url('../../assets/images/zhendongIcon.png') no-repeat;
+          cursor: pointer;
+          transition: left 0.2s;
+          transition-delay: 0.5s;
+          &:hover {
+            background: url('../../assets/images/zhendongIconActive.png') no-repeat;
+          }
+          &.sonIconShow {
+            left: 250px;
+            top: 0;
+            transition: left 0.2s;
+            transition-delay: 0.5s;
+          }
+        }
+        .qiangjiIcon {
+          position: absolute;
+          display: inline-block;
+          left: -50px;
+          top: 0;
+          width: 48px;
+          height: 48px;
+          background: url('../../assets/images/qiangjiIcon.png') no-repeat;
+          cursor: pointer;
+          transition: left 0.2s;
+          transition-delay: 0.6s;
+          &:hover {
+            background: url('../../assets/images/qiangjiIconActive.png') no-repeat;
+          }
+          &.sonIconShow {
+            left: 300px;
+            top: 0;
+            transition: left 0.2s;
+            transition-delay: 0.6s;
+          }
+        }
+      }
+    }
+    .fireFightingIconWrap {
+      position: absolute;
+      left: 0px;
+      top: 300px;
+      width: 400px;
+      height: 48px;
+      transition: top 0.2s;
+      transition-delay: 0.3s;
+      &.iconShow {
+        top:60px;
+        transition: top 0.2s;
+        transition-delay: 0.3s;
+      }
+      .fireFightingIcon {
+        display: inline-block;
+        width: 48px;
+        height: 48px;
+        background: url('../../assets/images/fireFightingIcon.png');
+        cursor: pointer;
+        transition: top 0.2s;
+        transition-delay: 0.3s;
+        &:hover {
+          background: url('../../assets/images/fireFightingIconActive.png');
+        }
+      }
+      .fireFightingSonIcon {
+        position: relative;
+        display: inline-block;
+        width: 0px;
+        height: 0px;
+        transition-delay: 0.7s;
+        overflow: hidden;
+        &.sonIconShow {
+          width: 350px;
+          height: 48px;
+          transition-delay: 0s;
+        }
+      }
+    }
+    .monitoringIconWrap {
+      position: absolute;
+      left: 0px;
+      top: 300px;
+      width: 400px;
+      height: 48px;
+      transition: top 0.2s;
+      transition-delay: 0.4s;
+      &.iconShow {
+        top:10px;
+        transition: top 0.2s;
+        transition-delay: 0.4s;
+      }
+      .monitoringIcon {
+        display: inline-block;
+        width: 48px;
+        height: 48px;
+        background: url('../../assets/images/monitoringIcon.png');
+        cursor: pointer;
+        &:hover {
+          background: url('../../assets/images/monitoringIconActive.png');
+        }
+      }
+      .monitoringSonIcon {
+        position: relative;
+        display: inline-block;
+        width: 0px;
+        height: 0px;
+        transition-delay: 0.7s;
+        overflow: hidden;
+        &.sonIconShow {
+          width: 350px;
+          height: 48px;
+          transition-delay: 0s;
+        }
+      }
+    }
+  }
+}
+
+// 菜单图标右侧
+.rightIconWrap {
+  position: absolute;
+  right: 316px;
+  top: 0px;
+  transition: right 1s;
+  &.hideRight {
+    right: 48px;
+    transition: right 1s;
+  }
+  .gongnengIcon {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    width: 48px;
+    height: 48px;
+    background: url('../../assets/images/gongneng.png');
+    cursor: pointer;
+    z-index: 99;
+    &:hover {
+      background: url('../../assets/images/gongnengActive.png');
+    }
+  }
+  .toggleIconWrap {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    width: 48px;
+    height: 0px;
+    overflow: hidden;
+    transition-delay: 1s;
+    &.iconShow {
+      height: 200px;
+      transition-delay: 0s;
+    }
+    .chongzhiIcon {
+      position: absolute;
+      left: 0px;
+      top: -50px;
+      width: 48px;
+      height: 48px;
+      transition: top 0.2s;
+      background: url('../../assets/images/chongzhi.png');
+      cursor: pointer;
+      &:hover {
+        background: url('../../assets/images/chongzhiActive.png');
+      }
+      &.iconShow {
+        top: 0px;
+        transition: top 0.2s;
+      }
+    }
+    .xiaoyinIcon {
+      position: absolute;
+      left: 0px;
+      top: -50px;
+      width: 48px;
+      height: 48px;
+      background: url('../../assets/images/xiaoyin.png');
+      cursor: pointer;
+      transition: top 0.2s;
+      transition-delay: 0.1s;
+      &:hover {
+        background: url('../../assets/images/xiaoyinActive.png');
+      }
+      &.iconShow {
+        top: 50px;
+        transition: top 0.2s;
+        transition-delay: 0.1s;
+      }
+    }
+    .bangzhuIcon {
+      position: absolute;
+      left: 0px;
+      top: -50px;
+      width: 48px;
+      height: 48px;
+      background: url('../../assets/images/bangzhu.png');
+      cursor: pointer;
+      transition: top 0.2s;
+      transition-delay: 0.2s;
+      &:hover {
+        background: url('../../assets/images/bangzhuActive.png');
+      }
+      &.iconShow {
+        top: 100px;
+        transition: top 0.2s;
+        transition-delay: 0.2s;
+      }
+    }
+    .tuichuIcon {
+      position: absolute;
+      left: 0px;
+      top: -50px;
+      width: 48px;
+      height: 48px;
+      background: url('../../assets/images/tuichu.png');
+      cursor: pointer;
+      transition: top 0.2s;
+      transition-delay: 0.3s;
+      &:hover {
+        background: url('../../assets/images/tuichuActive.png');
+      }
+      &.iconShow {
+        top: 150px;
+        transition: top 0.2s;
+        transition-delay: 0.3s;
+      }
+    }
+  }
+}
+  // 左边表单
+  .rightWrap{
+    .el-form{
+      width: 220px;
+      max-height: 762px;
+      height: 720px;
+      overflow: auto;
+      margin: 30px auto 0px;
+      .el-form-item__label{
+        padding-right: 0px;
+      }
+      .el-form-item{
+        margin-bottom: 6px;
+      }
+      .el-form-item__error{
+        top: 95%;
+        padding-top: 0px;
+      }
+      .el-form-item.is-error .el-input__inner{
+        border-color: 1px solid #f56c6c;
+      }
+      .el-icon-date{
+        display: none;
+      }
+      .el-input {
+        width: 120px;
+        .el-input__inner {
+          width: 100%;
+        }
+      }
+      .el-date-editor.el-input{
+        width: 120px;
+        .el-input__inner {
+          padding-left: 5px;
+        }
+      }
+    }
+  } 
+  //  搜索数的input框
+  // .contactList,.planList,.officeIntroduction{
+  //   .leftWrap .treeSearchWrap .treeSearchInput .el-input__inner {
+  //       width: 210px;
+  //   }
+  // }
+
+  // 多行文本框
+  .ql-container.ql-snow{
+    border: none;
+    background:rgba(224,244,255,0.24);
+    p {
+      font-size: 16px;
+      color:#000;
+      span{
+        font-size: 16px;
+      }
+    }
+  }
+
+  // 禁止输入的文本框颜色
+  .el-input.is-disabled .el-input__inner{
+    color: #f5f5f5;
+  }
+  //日期选择框的颜色
+  .el-picker-panel__body-wrapper{
+    .el-input .el-input__inner{
+      color: #666;
+      background: #fff;
+      border: 1px solid #ccc;
+    }
+  }
+
+  // 清除浮动
+  .clearBtn{
+    overflow: hidden;
+    .commonBtn{
+      margin-bottom: 0px;
+    }
+  }
+  .warning{
+    .el-dialog__body{
+      .icon{
+        text-align: center;
+        .el-icon-warning{
+          font-size: 56px;
+        }
+      }
+      .content{
+        width: 40%;
+        margin: 20px auto 0px;
+        p{
+          span{
+            font-size: 16px;
+          }
+        } 
+        
+      }
+    }
+    
+  }
+  
